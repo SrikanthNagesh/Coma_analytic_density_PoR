@@ -1,0 +1,8 @@
+mpif90 -frecord-marker=4 -O3 -ffree-line-length-none -g -fbacktrace  -x f95-cpp-input -DNVECTOR=32 -DNDIM=3 -DNPRE=8 -DNENER=0 -DNVAR=5 -DSOLVERhydro -c ../patch/hydro/phantom_extfield/amr_parameters.f90 -o amr_parameters.o
+mpif90 -frecord-marker=4 -O3 -ffree-line-length-none -g -fbacktrace  -x f95-cpp-input -DNVECTOR=32 -DNDIM=3 -DNPRE=8 -DNENER=0 -DNVAR=5 -DSOLVERhydro -c ../patch/hydro/phantom_extfield/amr_commons.f90 -o amr_commons.o
+mpif90 -frecord-marker=4 -O3 -ffree-line-length-none -g -fbacktrace  -x f95-cpp-input -DNVECTOR=32 -DNDIM=3 -DNPRE=8 -DNENER=0 -DNVAR=5 -DSOLVERhydro -c ../amr/random.f90 -o random.o
+mpif90 -frecord-marker=4 -O3 -ffree-line-length-none -g -fbacktrace  -x f95-cpp-input -DNVECTOR=32 -DNDIM=3 -DNPRE=8 -DNENER=0 -DNVAR=5 -DSOLVERhydro -c ../pm/pm_parameters.f90 -o pm_parameters.o
+mpif90 -frecord-marker=4 -O3 -ffree-line-length-none -g -fbacktrace  -x f95-cpp-input -DNVECTOR=32 -DNDIM=3 -DNPRE=8 -DNENER=0 -DNVAR=5 -DSOLVERhydro -c ../patch/hydro/phantom_extfield/pm_commons.f90 -o pm_commons.o
+mpif90 -frecord-marker=4 -O3 -ffree-line-length-none -g -fbacktrace  -x f95-cpp-input -DNVECTOR=32 -DNDIM=3 -DNPRE=8 -DNENER=0 -DNVAR=5 -DSOLVERhydro -c ../poisson/poisson_parameters.f90 -o poisson_parameters.o
+mpif90 -frecord-marker=4 -O3 -ffree-line-length-none -g -fbacktrace  -x f95-cpp-input -DNVECTOR=32 -DNDIM=3 -DNPRE=8 -DNENER=0 -DNVAR=5 -DSOLVERhydro -c ../patch/hydro/phantom_extfield/poisson_commons.f90 -o poisson_commons.o
+Makefile:140: recipe for target 'poisson_commons.o' failed

@@ -1,0 +1,1 @@
+rsync -v --stats -rlpt --safe-links -u -h --progress --include='*.f' --include='*.f90' --include='Makefile' --exclude='*' . /vol/dynamix5/dynamix5_1/ithies/AMR/2015/ramses/trunk/ramses/patch/hydro/phantom_extfield/

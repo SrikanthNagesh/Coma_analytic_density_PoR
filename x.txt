@@ -1,0 +1,317 @@
+amr/amr_commons.f90:  real(dp)::rho_tot=0.0D0                       ! Mean density in the box
+amr/amr_commons.f90:  real(dp),dimension(1:MAXLEVEL)::rho_max     ! Maximum density at each level
+amr/amr_parameters.f90:  real(dp)::rho_sink = -1.D0  ! Sink particle density threshold in g/cc
+amr/amr_step.f90:     call rho_fine(ilevel,icount)
+amr/flag_utils.f90:     nCOM = del_star*omega_b*rhoc*(h0/100.)**2/aexp**3*X/mH
+amr/flag_utils.f90:     nCOM = del_star*omega_b*rhoc*(h0/100.)**2/aexp**3*X/mH
+amr/init_amr.f90:     read(ilun)const,mass_tot_0,rho_tot
+amr/init_refine.f90:        if(poisson)call rho_fine(ilevel,2)
+amr/output_amr.f90:  write(ilun)const,mass_tot_0,rho_tot
+amr/output_amr.f90:  real, parameter:: RHOcrit = 2.7755d11
+amr/output_amr.f90:  header%mass(2) = omega_m*RHOcrit*(boxlen_ini)**3/npart_tot/1.d10
+amr/refine_utils.f90:           rho(ind_cell_son(i))=0.0D0
+amr/units.f90:  if(cosmo) scale_d = omega_m * rhoc *(h0/100.)**2 / aexp**3
+amr/units.f90:  ! scale_T2 converts (P/rho) in user unit into (T/mu) in Kelvin
+amr/units.f90:  ! scale_nH converts rho in user units into nH in H/cc
+aton/rad_step.f90:  ! Density rho.
+hydro/cooling_fine.f90:     nCOM = del_star*omega_b*rhoc*(h0/100.)**2/aexp**3*X/mH
+hydro/cooling_fine.f90:     ! Compute rho
+hydro/cooling_fine.f90:     ! Compute rho
+hydro/cooling_module.f90:  real(kind=8),parameter ::rhoc    = 1.8800000d-29
+hydro/cooling_module.f90:  nH_com = omegab*rhoc*h**2*X/mH
+hydro/godunov_utils.f90:           write(*,*)'rho  =',uu(k,1)
+hydro/interpol_hydro.f90:  ! interpol_var=0: use rho, rho u and E
+hydro/interpol_hydro.f90:  ! interpol_tar=1: use rho, rho u and rho epsilon
+hydro/interpol_hydro.f90:  ! interpol_var=0: rho, rho u and E
+hydro/interpol_hydro.f90:  ! interpol_var=1: rho, rho u and rho epsilon
+hydro/interpol_hydro.f90:  ! interpol_var=2: rho, u and rho epsilon
+hydro/umuscl.f90:  real(dp)::eint, smalle, dtxhalf, oneoverrho
+hydro/umuscl.f90:              oneoverrho = one/q(l,i,j,k,1)
+hydro/umuscl.f90:              q(l,i,j,k,2) = uin(l,i,j,k,2)*oneoverrho
+hydro/umuscl.f90:              q(l,i,j,k,3) = uin(l,i,j,k,3)*oneoverrho
+hydro/umuscl.f90:              q(l,i,j,k,4) = uin(l,i,j,k,4)*oneoverrho
+hydro/umuscl.f90:                 erad = erad+uin(l,i,j,k,ndim+2+irad)*oneoverrho
+hydro/umuscl.f90:              eint = MAX(uin(l,i,j,k,ndim+2)*oneoverrho-eken-erad,smalle)
+hydro/umuscl.f90:              c(l,i,j,k)=sqrt(c(l,i,j,k)*oneoverrho)
+hydro/umuscl.f90:                 oneoverrho = one/q(l,i,j,k,1)
+hydro/umuscl.f90:                 q(l,i,j,k,n) = uin(l,i,j,k,n)*oneoverrho
+hydro/write_screen.f90:                    dtot(icell)=rho(ind_cell(i))
+hydro/write_screen.f90:        write(*,*)'lev      x           d          u          Pnt      P        rho       f'
+hydro/write_screen.f90:        write(*,*)'lev      x           d          u          P        rho       f'
+mhd/cooling_fine.f90:     nCOM = del_star*omega_b*rhoc*(h0/100.)**2/aexp**3*X/mH
+mhd/cooling_fine.f90:     ! Compute rho
+mhd/cooling_fine.f90:     ! Compute rho
+mhd/courant_fine.f90:  ! the maximum density rho_max, and the potential energy
+mhd/courant_fine.f90:  real(kind=8)::rho_max_loc,rho_max_all,epot_loc,epot_all
+mhd/godunov_utils.f90:  real(dp),dimension(1:nvector),save::a2,B2,rho,ctot
+mhd/godunov_utils.f90:     rho(k)=uu(k,1)
+mhd/godunov_utils.f90:        uu(k,idim+1) = uu(k,idim+1)/rho(k)
+mhd/godunov_utils.f90:           cc=half*(B2(k)/rho(k)+a2(k))
+mhd/godunov_utils.f90:           cf=sqrt(cc+sqrt(cc**2-a2(k)*BN**2/rho(k)))
+mhd/godunov_utils.f90:     rho(k)=zero
+mhd/godunov_utils.f90:        rho(k)=rho(k)+abs(gg(k,idim))
+mhd/godunov_utils.f90:     rho(k)=rho(k)*dx/ctot(k)**2
+mhd/godunov_utils.f90:     rho(k)=MAX(rho(k),0.0001_dp)
+mhd/godunov_utils.f90:     dtcell=dx/ctot(k)*(sqrt(one+two*courant_factor*rho(k))-one)/rho(k)
+mhd/godunov_utils.f90:  !! the structure of qvar is : rho, Pressure, Vnormal, Bnormal, 
+mhd/godunov_utils.f90:  !! the structure of qvar is : rho, Pressure, Vnormal, Bnormal, 
+mhd/godunov_utils.f90:  !! the structure of qvar is : rho, Pressure, Vnormal, Bnormal, 
+mhd/godunov_utils.f90:  !! the structure of qvar is : rho, Pressure, Vnormal, Bnormal, 
+mhd/godunov_utils.f90:  ! remember the convention : rho, E, rhovx, bx, rhovy, by, vz, rhobz
+mhd/godunov_utils.f90:  ! remember the convention : rho, E, rhovx, bx, rhovy, by, vz, rhobz
+mhd/godunov_utils.f90:  ! rho,rhovx,rhovy,rhovz,E,by,bz
+mhd/godunov_utils.f90:!   Xfac  = ((by^2-byl*byr)+bz^2-bzl*bzr))/(2*rho)
+mhd/godunov_utils.f90:!   Yfac  = (rho_l+rho_r)/(2*rho)
+mhd/interpol_hydro.f90:  ! interpol_var=0: use rho, rho u and E
+mhd/interpol_hydro.f90:  ! interpol_tar=1: use rho, rho u and rho epsilon
+mhd/interpol_hydro.f90:  ! interpol_var=0: rho, rho u and E
+mhd/interpol_hydro.f90:  ! interpol_var=1: rho, rho u and rho epsilon
+mhd/umuscl.f90:!  uin = (\rho, \rho u, \rho v, \rho w, Etot, A, B, C)
+mhd/write_screen.f90:                    dtot(icell)=rho(ind_cell(i))
+pario/output_amr_io.f90:  xdp(3)=const;xdp(4)=mass_tot_0;xdp(5)=rho_tot
+pario/output_amr_io.f90:     write(ilun)xdp(3),xdp(4),xdp(5) !const,mass_tot_0,rho_tot
+pm/clfind_commons.f90:  real(dp)::rho_clfind=-1.d0
+pm/clump_finder.f90:  use poisson_commons, ONLY:phi,rho
+pm/clump_finder.f90:  ! Compute rho from gas density or dark matter particles
+pm/clump_finder.f90:        if(poisson)call rho_only(ilevel)
+pm/clump_finder.f90:        call count_test_particle(rho(1),ilevel,0,1) 
+pm/clump_finder.f90:        call count_test_particle(rho(1),ilevel,nskip,2)
+pm/clump_finder.f90:        call count_peaks(rho(1),npeaks)
+pm/clump_finder.f90:        call flag_peaks(rho(1),nskip)
+pm/clump_finder.f90:        call saddlepoint_search(rho(1)) 
+pm/clump_finder.f90:        call compute_clump_properties(rho(1))
+pm/clump_finder.f90:       & n_clfind,rho_clfind
+pm/clump_finder.f90:     if(myid==1)write(*,*)'threshold n_clfind [parts/cc] or rho_clfind [g/cc]!'
+pm/clump_finder.f90:     if (rho_clfind>0. .or. n_clfind >0.)then     
+pm/clump_finder.f90:     if (rho_clfind>0. .and. n_clfind >0.)then   ! too much information...
+pm/clump_finder.f90:     else if (rho_clfind<0. .and. n_clfind <0.)then  !not enough information
+pm/clump_finder.f90:           if(myid==1)write(*,*)'or rho_clfind [g/cc]!'
+pm/clump_finder.f90:     else if(rho_clfind>0.)then
+pm/clump_finder.f90:        density_threshold=rho_clfind/scale_d
+pm/clump_finder.f90:subroutine rho_only(ilevel)
+pm/clump_finder.f90:  ! Initialize rho to analytical and baryon density field
+pm/clump_finder.f90:        call make_virtual_reverse_dp(rho(1),i)
+pm/clump_finder.f90:        call make_virtual_fine_dp   (rho(1),i)
+pm/clump_finder.f90:  ! Initialize rho to zero in virtual boundaries
+pm/clump_finder.f90:           rho(reception(icpu,ilevel)%igrid(i)+iskip)=0.0D0
+pm/clump_finder.f90:     call rho_only_level(ilevel)
+pm/clump_finder.f90:  call make_virtual_reverse_dp(rho(1),ilevel)
+pm/clump_finder.f90:  call make_virtual_fine_dp   (rho(1),ilevel)
+pm/clump_finder.f90:  ! Reset rho in physical boundaries
+pm/clump_finder.f90:           rho(boundary(ibound,ilevel)%igrid(i)+iskip)=0.0
+pm/clump_finder.f90:111 format('   Entering rho_only for level ',I2)
+pm/clump_finder.f90:end subroutine rho_only
+pm/clump_finder.f90:subroutine rho_only_level(ilevel)
+pm/clump_finder.f90:end subroutine rho_only_level
+pm/clump_finder.f90:           rho(indp(j,ind))=rho(indp(j,ind))+vol2(j)
+pm/clump_merger.f90:          '        rho-               rho+               rho_av             mass_cl            relevance   '
+pm/clump_merger.f90:             '        rho+               mass      '
+pm/feedback.f90:  use cooling_module, ONLY: XH=>X, rhoc, mH 
+pm/init_sink.f90:  allocate(rho_sink_tff(levelmin:nlevelmax))
+pm/init_sink.f90:  allocate(rho_gas(1:nsinkmax))
+pm/init_sink.f90:  rho_gas=0.d0
+pm/newdt_fine.f90:        tff=sqrt(threepi2/8./fourpi/(rho_max(ilevel)+rho_sink_tff(ilevel)))
+pm/newdt_fine.f90:        tff=sqrt(threepi2/8./fourpi/rho_max(ilevel))
+pm/pm_commons.f90:  real(dp),allocatable,dimension(:)::rho_gas,volume_gas,eps_sink
+pm/pm_commons.f90:  real(dp),allocatable,dimension(:)::rho_sink_tff
+pm/rho_fine.f90:subroutine rho_fine(ilevel,icount)
+pm/rho_fine.f90:  ! Array rho and cpu_map2 are stored with:
+pm/rho_fine.f90:  ! - rho containing the Poisson source term
+pm/rho_fine.f90:  ! Initialize rho to analytical and baryon density field
+pm/rho_fine.f90:        call make_virtual_reverse_dp(rho(1),i)
+pm/rho_fine.f90:        call make_virtual_fine_dp   (rho(1),i)
+pm/rho_fine.f90:           rho_top(active(ilevel)%igrid(i)+iskip)=0.0D0
+pm/rho_fine.f90:           rho_top(active(ilevel)%igrid(i)+iskip)=rho_top(father(active(ilevel)%igrid(i)))
+pm/rho_fine.f90:           rho(active(ilevel)%igrid(i)+iskip)=rho(active(ilevel)%igrid(i)+iskip)+ &
+pm/rho_fine.f90:                & rho_top(active(ilevel)%igrid(i)+iskip)
+pm/rho_fine.f90:                         & rho(active(ilevel)%igrid(i)+iskip)/d_scale
+pm/rho_fine.f90:                      & rho(active(ilevel)%igrid(i)+iskip)/d_scale
+pm/rho_fine.f90:  ! Initialize rho and phi to zero in virtual boundaries
+pm/rho_fine.f90:           rho(reception(icpu,ilevel)%igrid(i)+iskip)=0.0D0
+pm/rho_fine.f90:              rho_top(reception(icpu,ilevel)%igrid(i)+iskip)=0.0D0
+pm/rho_fine.f90:     call rho_from_current_level(ilevel)
+pm/rho_fine.f90:  call make_virtual_reverse_dp(rho(1),ilevel)
+pm/rho_fine.f90:  call make_virtual_fine_dp   (rho(1),ilevel)
+pm/rho_fine.f90:     call make_virtual_reverse_dp(rho_top(1),ilevel)
+pm/rho_fine.f90:     call make_virtual_fine_dp   (rho_top(1),ilevel)
+pm/rho_fine.f90:  ! Compute multipole contribution from all cpus and set rho_tot
+pm/rho_fine.f90:     rho_tot=multipole(1)/scale**ndim
+pm/rho_fine.f90:     if(debug)write(*,*)'rho_average=',rho_tot
+pm/rho_fine.f90:     rho_tot=0d0
+pm/rho_fine.f90:  ! Reset rho and phi in physical boundaries
+pm/rho_fine.f90:           rho(boundary(ibound,ilevel)%igrid(i)+iskip)=0.0
+pm/rho_fine.f90:!!$        print*,rho(active(ilevel)%igrid(i)+iskip),rho_tot
+pm/rho_fine.f90:111 format('   Entering rho_fine for level ',I2)
+pm/rho_fine.f90:end subroutine rho_fine
+pm/rho_fine.f90:subroutine rho_from_current_level(ilevel)
+pm/rho_fine.f90:end subroutine rho_from_current_level
+pm/rho_fine.f90:              rho(indp(j,ind))=rho(indp(j,ind))+vol2(j)
+pm/rho_fine.f90:              rho(indp(j,ind))=rho(indp(j,ind))+vol2(j)
+pm/rho_fine.f90:              rho_top(indp(j,ind))=rho_top(indp(j,ind))+vol2(j)
+pm/rho_fine.f90:  ! This routine compute array rho (source term for Poisson equation)
+pm/rho_fine.f90:  ! by first reseting array rho to zero, then 
+pm/rho_fine.f90:  ! routine only set rho to zero. On the other hand, for the Multigrid
+pm/rho_fine.f90:           ! Call user defined routine rho_ana
+pm/rho_fine.f90:           call rho_ana(xx,dd,dx_loc,nleaf)
+pm/rho_fine.f90:  ! This routine compute array rho (source term for Poisson equation)
+pm/rho_fine.f90:  ! by first reseting array rho to zero, then 
+pm/rho_fine.f90:  ! routine only set rho to zero. On the other hand, for the Multigrid
+pm/rho_fine.f90:           rho(reception(icpu,ilevel)%igrid(i)+iskip)=0.0D0
+pm/rho_fine.f90:        rho(active(ilevel)%igrid(i)+iskip)=0.0D0
+pm/rho_fine.f90:  ! Reset rho in physical boundaries
+pm/rho_fine.f90:           rho(boundary(ibound,ilevel)%igrid(i)+iskip)=0.0
+pm/rho_fine.f90:  real(dp),dimension(1:nvector),save::new_rho
+pm/rho_fine.f90:              rho(indp(j,ind))=rho(indp(j,ind))+vol2(j)
+pm/rho_fine.f90:              rho(indp(j,ind))=rho(indp(j,ind))+vol2(j)
+pm/rho_fine.f90:              rho(indp(j,ind))=rho(indp(j,ind))+vol2(j)
+pm/rho_fine.f90:              rho_top(indp(j,ind))=rho_top(indp(j,ind))+vol2(j)
+pm/rho_fine.f90:  ! This routine compute array rho (source term for Poisson equation)
+pm/rho_fine.f90:  ! by first reseting array rho to zero, then 
+pm/rho_fine.f90:  ! routine only set rho to zero. On the other hand, for the Multigrid
+pm/rho_fine.f90:           rho(reception(icpu,ilevel)%igrid(i)+iskip)=0.0D0
+pm/rho_fine.f90:        rho(active(ilevel)%igrid(i)+iskip)=0.0D0
+pm/rho_fine.f90:  ! Reset rho in physical boundaries
+pm/rho_fine.f90:           rho(boundary(ibound,ilevel)%igrid(i)+iskip)=0.0
+pm/rho_fine.f90:  real(dp),dimension(1:nvector),save::new_rho
+pm/rho_fine.f90:              rho(indp(j,ind))=rho(indp(j,ind))+vol2(j)
+pm/sink_particle.f90:  call make_virtual_reverse_dp(rho(1),ilevel)
+pm/sink_particle.f90:  call make_virtual_fine_dp(rho(1),ilevel)
+pm/sink_particle.f90:     !compute divergence of (rho*v - rho*vsink) in one go
+pm/sink_particle.f90:              Mred=msink(isink)*(rho_gas(isink)*volume_gas(isink))/(msink(isink)+(rho_gas(isink)*volume_gas(isink)))
+pm/sink_particle.f90:           density=rho_gas(isink)
+pm/sink_particle.f90:  real(dp)::r2,v2,c2,density,volume,ethermal,dx_min,scale,mgas,rho_inf,divergence,v_bondi
+pm/sink_particle.f90:        ! extrapolate to rho_inf
+pm/sink_particle.f90:        rho_inf=density/(bondi_alpha(ir_cloud*0.5*dx_min/r2**0.5))
+pm/sink_particle.f90:        dMBHoverdt(isink)=4.*3.1415926*rho_inf*r2*v_bondi
+pm/sink_particle.f90:        rho_gas(isink)=density
+pm/sink_particle.f90:     call print_sink_properties(dMEDoverdt,rho_inf,r2,v_bondi)
+pm/sink_particle.f90:  ! Routine to return alpha, defined as rho/rho_inf, for a critical
+pm/sink_particle.f90:subroutine print_sink_properties(dMEDoverdt,rho_inf,r2,v_bondi)
+pm/sink_particle.f90:  real(dp)::v_bondi,r2,rho_inf
+pm/sink_particle.f90:          write(*,'(" Id     rho(H/cc)  rho_inf(H/cc) Mgas(Msol) cs(km/s) rBondi(pc)")')
+pm/sink_particle.f90:            write(*,'(I3,12(1X,1PE14.7))')idsink(isink),rho_gas(isink)*scale_nH,rho_inf*scale_nH &
+pm/sink_particle.f90:                & ,rho_gas(isink)*volume_gas(isink)*scale_m/2d33,sqrt(c2sink(isink))*scale_v/1e5 &
+pm/sink_particle.f90:  use poisson_commons, only:rho
+pm/sink_particle.f90:              cube3(i,j,k)=rho(cell_index(counter))
+pm/sink_particle.f90:  real(dp)::rho_tff,rho_tff_tot,d_min
+pm/sink_particle.f90:  rho_tff=0.
+pm/sink_particle.f90:                 mcell(i)=rho(ind_cell(i))*vol_loc
+pm/sink_particle.f90:        rho_tff=max(rho_tff,msink(isink)/(4./3.*4.13145*d_min**3))
+pm/sink_particle.f90:  !collect rho due to sinks for current level - used for timestep computation
+pm/sink_particle.f90:  call MPI_ALLREDUCE(rho_tff,rho_tff_tot,1,MPI_DOUBLE_PRECISION,MPI_MAX,MPI_COMM_WORLD,info)
+pm/sink_particle.f90:  rho_tff_tot=rho_tff
+pm/sink_particle.f90:  rho_sink_tff(ilevel)=rho_tff_tot
+pm/sink_particle.f90:  namelist/sink_params/n_sink,rho_sink,d_sink,accretion_scheme,nol_accretion,merging_timescale,&
+pm/sink_particle.f90:     if (rho_sink<0. .and. n_sink<0. .and. d_sink>0.) then
+pm/sink_particle.f90:     else if (rho_sink>0. .and. n_sink<0. .and. d_sink<0.)then
+pm/sink_particle.f90:        if(myid==1)write(*,*)'Found rho_sink! Assuming g/cc'
+pm/sink_particle.f90:        d_sink=rho_sink/scale_d
+pm/sink_particle.f90:     else if (rho_sink<0. .and. n_sink>0. .and. d_sink<0.)then
+pm/sink_particle.f90:     else if ((rho_sink>0. .and. n_sink>0.) .or. (rho_sink>0. .and. d_sink>0.) .or. (n_sink>0. .and. d_sink>0.))then
+pm/sink_particle.f90:        if (myid==1)write(*,*)'Use n_sink [H/cc] OR rho_sink [g/cc] OR d_sink [code_units]'
+pm/sink_particle.f90:           if(myid==1)write(*,*)'rho_sink = ',d_sink*scale_d
+pm/sink_particle.f90:  use poisson_commons, only:rho
+pm/sink_particle.f90:              rho(cell_index)=0.
+pm/sink_particle.f90:  use poisson_commons, only:rho
+pm/sink_particle.f90:           rho(cind_part(i,ind))=rho(cind_part(i,ind))+vol(i,ind)
+pm/sink_particle.f90:           if (rho(cind_part(i,ind))>parts_per_cell)then
+pm/sink_particle.f90:              weight=weight*parts_per_cell/rho(cind_part(i,ind))
+pm/star_formation.f90:  use cooling_module, ONLY: XH=>X, rhoc, mH 
+pm/star_formation.f90:  nCOM = del_star*omega_b*rhoc*(h0/100.)**2/aexp**3*XH/mH
+poisson/force_fine.f90:  ! the maximum density rho_max, and the potential energy
+poisson/force_fine.f90:  real(kind=8)::rho_loc,rho_all,epot_loc,epot_all
+poisson/force_fine.f90:  rho_loc =0.0; rho_all =0.0
+poisson/force_fine.f90:           rho_loc=MAX(rho_loc,dble(abs(rho(ind_cell(i)))))
+poisson/force_fine.f90:     call MPI_ALLREDUCE(rho_loc ,rho_all ,1,MPI_DOUBLE_PRECISION,MPI_MAX,MPI_COMM_WORLD,info)
+poisson/force_fine.f90:     rho_loc =rho_all
+poisson/force_fine.f90:     rho_max(ilevel)=rho_loc
+poisson/init_poisson.f90:  allocate(rho (1:ncell))
+poisson/init_poisson.f90:  rho=0.0D0; phi=0.0D0; f=0.0D0
+poisson/init_poisson.f90:     allocate(rho_top(1:ncell))
+poisson/init_poisson.f90:     rho_top=0d0
+poisson/interpol_phi.f90:              ! add=coeff*(-3d0/8d0*dx**2*boxlen*rho(ind_cell(i))+phi(ind_cell(i)))
+poisson/interpol_phi.f90:              ! add=coeff*(-3d0/8d0*dx**2*boxlen*rho(indice)+phi(indice)) 
+poisson/multigrid_coarse.f90:  ! Compute rho for all coarser levels using restriction operator
+poisson/multigrid_coarse.f90:  ! Substract rho_tot to rho
+poisson/multigrid_coarse.f90:        rho(active(ilevel)%igrid(i)+iskip)=rho(active(ilevel)%igrid(i)+iskip)-rho_tot
+poisson/multigrid_coarse.f90:  floor=prec*sqrt(fact*dble(twotondim*numbtot(1,ilevel)))*rho_tot
+poisson/multigrid_coarse.f90:        rhs_norm=rhs_norm+fact*rho(active(ilevel)%igrid(i)+iskip)*rho(active(ilevel)%igrid(i)+iskip)
+poisson/multigrid_coarse.f90:  ! Add rho_tot to rho
+poisson/multigrid_coarse.f90:        rho(active(ilevel)%igrid(i)+iskip)=rho(active(ilevel)%igrid(i)+iskip)+rho_tot
+poisson/multigrid_coarse.f90:        phi(active(ilevel)%igrid(i)+iskip)=-fact*rho(active(ilevel)%igrid(i)+iskip)
+poisson/multigrid_coarse.f90:           residu(i)=residu(i)-oneoversix*dx2*rho(ind_cell(i))
+poisson/multigrid_coarse.f90:           residu(i)=residu(i)+oneoversix*dx2*rho(ind_cell(i))
+poisson/multigrid_coarse.f90:  ! This routine compute array rho (source term for Poisson equation)
+poisson/multigrid_coarse.f90:  ! by first reseting array rho to zero, then 
+poisson/multigrid_coarse.f90:  ! routine only set rho to zero. On the other hand, for the Multigrid
+poisson/multigrid_coarse.f90:           rho(reception(icpu,ilevel)%igrid(i)+iskip)=0.0D0
+poisson/multigrid_coarse.f90:        rho(active(ilevel)%igrid(i)+iskip)=0.0D0
+poisson/multigrid_coarse.f90:           rho(boundary(ibound,ilevel)%igrid(i)+iskip)=0.0D0
+poisson/multigrid_coarse.f90:  call make_virtual_reverse_dp(rho(1),ilevel)
+poisson/multigrid_coarse.f90:  call make_virtual_fine_dp   (rho(1),ilevel)
+poisson/multigrid_coarse.f90:  real(dp),dimension(1:nvector),save::new_rho
+poisson/multigrid_coarse.f90:        ! Gather rho in temporary array
+poisson/multigrid_coarse.f90:           new_rho(i)=rho(ind_cell_father(i))
+poisson/multigrid_coarse.f90:              new_rho(i)=new_rho(i)+coeff*f(ind_cell(i),1)
+poisson/multigrid_coarse.f90:              new_rho(i)=new_rho(i)+coeff*rho(ind_cell(i))
+poisson/multigrid_coarse.f90:        ! Update array rho
+poisson/multigrid_coarse.f90:           rho(ind_cell_father(i))=new_rho(i)
+poisson/multigrid_coarse.f90:  real(dp),dimension(1:nvector),save::new_rho
+poisson/multigrid_coarse.f90:        new_rho=0.0d0
+poisson/multigrid_coarse.f90:              new_rho(i)=new_rho(i)+coeff*phi(nbors_father_cells(i,ind_father))
+poisson/multigrid_coarse.f90:           phi(ind_cell(i))=phi(ind_cell(i))+new_rho(i)
+poisson/multigrid_fine_coarse.f90:!     physical RHS         rho            active_mg(myid,ilevel)%u(:,2)
+poisson/multigrid_fine_commons.f90:!     physical RHS         rho            active_mg(myid,ilevel)%u(:,2)
+poisson/multigrid_fine_commons.f90:         ! Init BC-modified RHS to rho - rho_tot :
+poisson/multigrid_fine_commons.f90:         f(icell_amr,2) = fourpi*(rho(icell_amr) - rho_tot)
+poisson/multigrid_fine_fine.f90:!     physical RHS         rho            active_mg(myid,ilevel)%u(:,2)
+poisson/phi_fine_cg.f90:  ! b  : stored in rho(i)
+poisson/phi_fine_cg.f90:        rhs_norm=rhs_norm+fact2*(rho(idx)-rho_tot)*(rho(idx)-rho_tot)
+poisson/phi_fine_cg.f90:           residu(i)=residu(i)+fact*(rho(ind_cell(i))-rho_tot)
+poisson/poisson_commons.f90:  real(dp),allocatable,dimension(:)  ::rho               ! Density
+poisson/poisson_commons.f90:  real(dp),allocatable,dimension(:)  ::rho_top   ! Density at last CIC level                                 
+poisson/rho_ana.f90:subroutine rho_ana(x,d,dx,ncell)
+poisson/rho_ana.f90:end subroutine rho_ana
+rhd/godunov_utils.f90:  real(dp) ::rho,p,vpar,vx,vy,vz
+rhd/godunov_utils.f90:  !! the structure of qvar is : rho, Pressure, Vnormal, Vpar1,Vpar2
+rhd/godunov_utils.f90:!> Compute the 1d mhd fluxes. The structure of qvar is : rho, pressure,
+rhd/godunov_utils.f90:!! The structure of qvar is : rho, pressure, vnormal,vtransverse1, vtransverse2,
+rhd/godunov_utils.f90:  real(dp) :: D,M,E,Mx,My,Mz,u2,Xsi,R,rho
+rhd/godunov_utils.f90:           rho=q(k,1)
+rhd/godunov_utils.f90:           q(k,5)=(2d0*xsi*(xsi+2d0*rho))/(5d0*(xsi+rho)+sqrt(9d0*xsi**2+18d0*rho*xsi+25d0*rho**2))
+rhd/interpol_hydro.f90:              ! to compute the child internal energy epsilon=P/rho/(gamma-1), we need the P and rho
+rhd/interpol_hydro.f90:           ! eint=p/rho/(gamma-1)
+rhd/output_hydro.f90:  real(dp) ::rho,p,vpar,vx,vy,vz,smallp,tau
+rhd/output_hydro.f90:                    rho=qq(i,1)
+rhd/output_hydro.f90:                    qq(i,5)=(2d0*xsi*(xsi+2d0*rho))/(5d0*(xsi+rho)+sqrt(9d0*xsi**2+18d0*rho*xsi+25d0*rho**2))
+rhd/umuscl.f90:!  uin = (\rho, \rho u, \rho v, \rho w, Etot)
+rhd/umuscl.f90:  real(dp)::eint, smalle, dtxhalf, oneonrho,rho
+rhd/umuscl.f90:                   rho=q(l,i,j,k,1)
+rhd/umuscl.f90:                   q(l,i,j,k,5)=(2d0*xsi*(xsi+2d0*rho))/(5d0*(xsi+rho)+sqrt(9d0*xsi**2+18d0*rho*xsi+25d0*rho**2))
+rhd/umuscl.f90:                oneonrho = 1.d0/q(l,i,j,k,1)
+rhd/umuscl.f90:                q(l,i,j,k,n) = uin(l,i,j,k,n)*oneonrho/lor
+rhd/umuscl.f90:  real(dp)::u2,lor,Xsi,P,rho
+rhd/umuscl.f90:     rho=D/lor
+rhd/umuscl.f90:     P=(2d0*xsi*(xsi+2d0*rho))/(5d0*(xsi+rho)+sqrt(9d0*xsi**2+18d0*rho*xsi+25d0*rho**2))
+rhd/umuscl.f90:  real(dp)::u2,lor,dpdR,dpdxsi,rho,xsi,dpdrho,dv2dR,dxsidR,drhodR,P
+rhd/umuscl.f90:     rho=D/lor
+rhd/umuscl.f90:     P=(2d0*xsi*(xsi+2d0*rho))/(5d0*(xsi+rho)+sqrt(9d0*xsi**2+18d0*rho*xsi+25d0*rho**2))
+rhd/umuscl.f90:     dpdxsi=(2d0*xsi+2d0*rho-5d0*P)/(5d0*rho+5d0*xsi-8d0*P)
+rhd/umuscl.f90:     dpdrho=(2d0*xsi-5d0*P)/(5d0*rho+5d0*xsi-8d0*P)
+rhd/umuscl.f90:     drhodR=D*lor/2d0*dv2dR
+rhd/umuscl.f90:     dpdR=dpdxsi*dxsidR+dpdrho*drhodR
+rhd/write_screen.f90:  real(dp) ::rho,p,vpar,vx,vy,vz
+rhd/write_screen.f90:                          rho=qq(icell,1)
+rhd/write_screen.f90:                          qq(icell,5)=(2d0*xsi*(xsi+2d0*rho))/(5d0*(xsi+rho)+sqrt(9d0*xsi**2+18d0*rho*xsi+25d0*rho**2))
+rt/rt_cooling_module.f90:         , isHe, is_mu_H2, X, Y, rhoc, kB, mH, T2_min_fix, twopi         &
+rt/rt_cooling_module.f90:  real(dp),parameter::rhoc      = 1.88000d-29    !  Crit. density [g cm-3]
+rt/rt_cooling_module.f90:    real(dp),save:: rho, TR, one_over_C_v, E_rad, dE_T, fluxMag, mom_fact
+rt/rt_cooling_module.f90:    rho = nH(icell) / X * mH
+rt/rt_cooling_module.f90:       dustAbs(:)  = kAbs_loc(:) *rho*Zsolar(icell)*rt_c_cgs
+rt/rt_cooling_module.f90:       dustSc(iIR) = kSc_loc(iIR)*rho*Zsolar(icell)*rt_c_cgs
+rt/rt_cooling_module.f90:          one_over_C_v = mh*mu*(gamma-1d0) / (rho*kb)
+rt/rt_cooling_module.f90:               /(1d0/(kAbs_loc(iIR) * Zsolar(icell) * rho * ddt(icell))  &
+rt/rt_cooling_module.f90:  nH_com = omegab*rhoc*h**2*X/mH
+rt/rt_init.f90:  nvar_count = ichem-1     ! # of non-rt vars: rho u v w p (z) (delay) (x)
+rt/rt_init_xion.f90:        ! Compute rho
+rt/rt_init_xion.f90:! vars     => Cell variables (rho, v, u, w, etc)

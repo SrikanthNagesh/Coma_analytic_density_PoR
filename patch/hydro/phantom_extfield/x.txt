@@ -1,0 +1,242 @@
+adaptive_loop.f90:  if(myid==1)write(*,*)'Time elapsed since startup:',tt2-tt1
+adaptive_loop.f90:     write(*,*)'Initial mesh structure'
+adaptive_loop.f90:        if(numbtot(1,ilevel)>0)write(*,999)ilevel,numbtot(1:4,ilevel)
+adaptive_loop.f90:  if(myid==1)write(*,*)'Starting time integration' 
+adaptive_loop.f90:     if(verbose)write(*,*)'Entering amr_step_coarse'
+adaptive_loop.f90:           write(*,*)'Time elapsed since last coarse step:',tt2-tt1
+adaptive_loop.f90:           call writemem(real_mem_tot)
+amr_step.f90:  if(verbose) write(*,999)icount,ilevel
+amr_step.f90:!   if(verbose)write(*,*)'Entering save_amr_density'
+amr_step.f90:!       write(ilun)ncpu
+amr_step.f90:!       write(ilun)ndim
+amr_step.f90:!       write(ilun)nlevelmax
+amr_step.f90:!       write(ilun)levelmin
+amr_step.f90:!       write(ilun)nboundary
+amr_step.f90:!       write(ilun)boxlen
+amr_step.f90:!       write(ilun)t
+amr_step.f90:!       write(ilun)multipole(1:4)
+amr_step.f90:!       write(ilun)ngridmax
+amr_step.f90:!         write(ilun)ilevel
+amr_step.f90:!         write(ilun)ncache
+amr_step.f90:!               ! ... and write
+amr_step.f90:!                 write(ilun)posx,posy,posz,rhotemp,pdmtemp,f_x,f_y,f_z, &
+condinit.f90:106 write(*,*)' You need to set up namelist &MERGER_PARAMS in parameter file'
+condinit.f90:          if(myid==1) write(*,*) "Chosen hydro radial density profile :'Toomre'"
+condinit.f90:          if(myid==1) write(*,*) "Chosen hydro radial density profile :'exponential'"
+condinit.f90:          if(myid==1) write(*,*) "Chosen hydro radial density profile :'exponential'"
+condinit.f90:          if(myid==1) write(*,*) "Chosen hydro vertical density profile :'gaussian'"
+condinit.f90:          if(myid==1) write(*,*) "Chosen hydro vertical density profile :'exponential'"
+condinit.f90:          if(myid==1) write(*,*) "Chosen hydro vertical density profile :'exponential'"
+condinit.f90:     if(myid==1)write(*,*)'Error: The galaxy #1 must be bigger than #2'
+condinit.f90:     if(myid==1)write(*,*)'Error: Vcirc_dat_file1 ''', trim(Vcirc_dat_file1), ''' doesn''t exist '
+condinit.f90:     if(myid==1)write(*,*)'Error: Vcirc_dat_file2 ''', trim(Vcirc_dat_file2), ''' doesn''t exist '
+condinit.f90:     if(myid==1)write(*,*)'Error: ic_part_file1 ''', trim(ic_part_file_gal1), ''' doesn''t exist in '''&
+condinit.f90:     if(myid==1)write(*,*)'Error: ic_part_file2 ''', trim(ic_part_file_gal2), ''' doesn''t exist in '''&
+condinit.f90:     if(myid==1)write(*,*)'Error: Galactic axis(1) is zero '
+condinit.f90:     if(myid==1)write(*,*)'Error: Galactic axis(2) is zero '
+condinit.f90:     if(myid==1)write(*,*)'Too many errors in the namelist'
+condinit.f90:     if(myid==1)write(*,*)'Aborting...'
+condinit.f90:     write(*,*)'Error: galactic center (1) coordinates must be in the box [', &
+condinit.f90:     write(*,*)'Error: galactic center (2) coordinates must be in the box [', &
+condinit.f90:		write(*,*) "Hydro IC error : Radius out of rotation curve !!!"
+init_part.f90:  if(verbose)write(*,*)'Entering init_part'
+init_part.f90:     if(verbose)write(*,*)'Initial conditions already set'
+init_part.f90:        write(*,*)'File part.tmp not compatible'
+init_part.f90:        write(*,*)'Found   =',ncpu2,ndim2,npart2
+init_part.f90:        write(*,*)'Expected=',ncpu,ndim,npartmax
+init_part.f90:     if(debug)write(*,*)'part.tmp read for processor ',myid
+init_part.f90:                          write(*,*)'Maximum number of particles incorrect'
+init_part.f90:                          write(*,*)'npartmax should be greater than',ipart
+init_part.f90:              write(*,*)'Some grid are outside initial conditions sub-volume'
+init_part.f90:              write(*,*)'for ilevel=',ilevel
+init_part.f90:              write(*,*)i1_min,i1_max
+init_part.f90:              write(*,*)i2_min,i2_max
+init_part.f90:              write(*,*)i3_min,i3_max
+init_part.f90:              write(*,*)n1(ilevel),n2(ilevel),n3(ilevel)
+init_part.f90:              write(*,*)myid,i1_min,i1_max,i2_min,i2_max,i3_min,i3_max
+init_part.f90:                    if(myid==1)write(*,*)'Reading file '//TRIM(filename_x)
+init_part.f90:              if(myid==1)write(*,*)'Reading file '//TRIM(filename)
+init_part.f90:                       if(debug.and.mod(i3,10)==0)write(*,*)'Reading plane ',i3
+init_part.f90:                          if(debug.and.mod(i3,10)==0)write(*,*)'Reading plane ',i3
+init_part.f90:           if(debug)write(*,*)'npart=',ipart,'/',npartmax,' for PE=',myid
+init_part.f90:           write(*,*)'No more free memory for particles'
+init_part.f90:           write(*,*)'Increase npartmax'
+init_part.f90:           write(*,*)myid
+init_part.f90:           write(*,*)jpart,npart_new
+init_part.f90:           write(*,*)bound_key
+init_part.f90:        write(*,*)'npart=',ipart,'/',npartmax,' for PE=',myid
+init_part.f90:        if(myid==1) write(*,*) "Init particles : rotated/shifted/kicked galaxies"
+init_part.f90:        if(debug)write(*,*)'npart=',npart,'/',npart_cpu(ncpu)
+init_part.f90:        write(*,*) 'Unsupported format file ' // filetype
+init_part.f90:        if(debug) write(*,*) myid, ':Read ', nparticles, ' from gadget file ', ifile, ' in ', &
+init_part.f90:                 write(*,*) "For ", myid, ipart, " exceeds ", size(mp)
+init_part.f90:        if(debug) write(*,*) myid, ':Processed ', nparticles, ' in ', TIME_SPENT(clock_start, clock_end, clock_rate), " ipart now ", ipart
+init_part.f90:  write(*,*)'npart=',npart,'/',npart_cpu(ncpu)
+init_poisson.f90:  if(verbose)write(*,*)'Entering init_poisson'
+init_poisson.f90:        write(*,*)'File poisson.tmp is not compatible'
+init_poisson.f90:        write(*,*)'Found   =',ndim2
+init_poisson.f90:        write(*,*)'Expected=',ndim
+init_poisson.f90:              write(*,*)'File poisson.tmp is not compatible'
+init_poisson.f90:              write(*,*)'Found   =',numbl2,' for level ',ilevel2
+init_poisson.f90:              write(*,*)'Expected=',ncache,' for level ',ilevel
+init_poisson.f90:     if(debug)write(*,*)'poisson.tmp read for processor ',myid
+init_poisson.f90:     if(verbose)write(*,*)'POISSON backup files read completed'
+load_balance.f90:  if(myid==1)write(*,*)'Load balancing AMR grid...'
+load_balance.f90:     write(*,*)'Input mesh structure'
+load_balance.f90:        if(numbtot(1,ilevel)>0)write(*,999)ilevel,numbtot(1:4,ilevel)
+load_balance.f90:     write(*,*)'Output mesh structure'
+load_balance.f90:        if(numbtot(1,ilevel)>0)write(*,999)ilevel,numbtot(1:4,ilevel)
+load_balance.f90:     if (nlevelmax - levelmin - 1 > 31) write(*,*) 'Warning load_balance: niter_cost may need to become a kind=8 integer'
+load_balance.f90:                       write(*,*) ' wrong type for flag1 --> change to integer kind=8: ',wflag
+load_balance.f90:        write(*,*)'Error in cmp_minmaxorder'
+load_balance.f90:        write(*,*)'Error in cmp_minmaxorder'
+load_balance.f90:  if(verbose)write(*,*)'Defragmenting main memory...'
+movie.f90:  if(myid==1)write(*,*)'Computing and dumping movie frame'
+movie.f90:  write(temp_string,'(I1)') proj_ind
+movie.f90:  if(myid==1) write(*,*) "Writing frame ", istep_str
+movie.f90:    write(dummy,'(I3.1)') ll
+movie.f90:        write(dummy,'(I3.1)') ll
+movie.f90:            write(ilun)t,delx,dely,delz
+movie.f90:            write(ilun)aexp,delx,dely,delz
+movie.f90:         write(ilun)nw_frame,nh_frame
+movie.f90:         write(ilun)data_single
+movie.f90:!!     write(*,*) 'testing', data_single(100,100)
+movie.f90:!        write(ilun)t,delx,dely,delz
+movie.f90:!        write(ilun)aexp,delx,dely,delz
+movie.f90:!     write(ilun)nw_frame,nh_frame
+movie.f90:!     write(ilun)data_single
+movie.f90:!           write(ilun)t,delx,dely,delz
+movie.f90:!           write(ilun)aexp,delx,dely,delz
+movie.f90:!        write(ilun)nw_frame,nh_frame
+movie.f90:!        write(ilun)data_single
+movie.f90:                  write(ilun)t,delx,dely,delz
+movie.f90:                  write(ilun)aexp,delx,dely,delz
+movie.f90:               write(ilun)nw_frame,nh_frame
+movie.f90:               write(ilun)data_single
+output_poisson.f90:  if(verbose)write(*,*)'Entering backup_poisson'
+output_poisson.f90:  write(ilun)ncpu
+output_poisson.f90:  write(ilun)ndim
+output_poisson.f90:  write(ilun)nlevelmax
+output_poisson.f90:  write(ilun)nboundary
+output_poisson.f90:        write(ilun)ilevel
+output_poisson.f90:        write(ilun)ncache
+output_poisson.f90:                 ! Write potential
+output_poisson.f90:                 write(ilun)xdp
+output_poisson.f90:                 ! Write force
+output_poisson.f90:                    write(ilun)xdp
+output_poisson.f90:                 ! Write potential
+output_poisson.f90:                 write(ilun)xdp
+output_poisson.f90:                 ! Write force
+output_poisson.f90:                    write(ilun)xdp
+output_poisson.f90:                 ! Write potential
+output_poisson.f90:                 write(ilun)xdp
+output_poisson.f90:                 ! Write force
+output_poisson.f90:                    write(ilun)xdp
+poisson_commons.f90:      write(*,*) ' ERROR: the "phantom" patch requires NDIM=3'
+poisson_commons.f90:      if (myid==1) write(*,*) ' ERROR: a0 parameter missing'
+poisson_commons.f90:      write(*,'(" Initializing MOND extension: a0 = ", E11.4, " m/s^2")') a0_ms2
+poisson_commons.f90:      write(*,'("                                 = ", E11.4, " [user length unit]/[user time unit]^2")') a0
+poisson_commons.f90:  if (verbose .and. myid==1) write(*,*) 'rho_mond_tot =',rho_mond_tot
+poisson_commons.f90:  if(verbose)write(*,111) 'compute_pdm_density_at_levelmin at level',ilevel
+poisson_commons.f90:     write(*,*) "Error: the MOND module can only be used with ndim=3 !"
+poisson_commons.f90:              write(*,*) 'Error in subroutine compute_pdm_density_at_levelmin: neighbor grid not available'
+poisson_commons.f90:  if(verbose)write(*,111) 'compute_pdm_density_at_fine_levels at level',ilevel
+read_params.f90:     write(*,*)''
+read_params.f90:     write(*,*)'                    ~  The Phantom of  ~                        '
+read_params.f90:     write(*,*)''
+read_params.f90:     write(*,*)'_/_/_/         .-.     _/    _/    _/_/_/   _/_/_/_/    _/_/_/  '
+read_params.f90:     write(*,*)'_/    _/     _/ ..\    _/_/_/_/   _/    _/  _/         _/    _/ '
+read_params.f90:     write(*,*)'_/    _/    ( \  v/__  _/ _/ _/   _/        _/         _/       '
+read_params.f90:     write(*,*)'_/_/_/       \     \   _/    _/     _/_/    _/_/_/       _/_/   '
+read_params.f90:     write(*,*)'_/    _/     /     |   _/    _/         _/  _/               _/ '
+read_params.f90:     write(*,*)'_/    _/  __/       \  _/    _/   _/    _/  _/         _/    _/ '
+read_params.f90:     write(*,*)'_/    _/ (   _._.-._/  _/    _/    _/_/_/   _/_/_/_/    _/_/_/  '
+read_params.f90:     write(*,*)'          `-`                                        '
+read_params.f90:     write(*,*)'                     RAMSES  Version 3               '
+read_params.f90:     write(*,*)'       written by Romain Teyssier (CEA/DSM/IRFU/SAP) '
+read_params.f90:     write(*,*)'                     (c) CEA 1999-2007               '
+read_params.f90:     write(*,*)'                                                     '     
+read_params.f90:     write(*,*)'                  with  MONDifications by            '
+read_params.f90:     write(*,*)'                 F. Lueghausen  (Uni Bonn)           '
+read_params.f90:     write(*,*)'                                                     '
+read_params.f90:    write(*,'(" ERROR: The QUMOND Poisson solver requires NDIM=3")')
+read_params.f90:  write(*,'(" Using solver = hydro with nvar = ",I2)')nvar
+read_params.f90:     write(*,*)'You should have: nvar>=ndim+2'
+read_params.f90:     write(*,'(" Please recompile with -DNVAR=",I2)')ndim+2
+read_params.f90:  write(*,'(" Using solver = mhd with nvar = ",I2)')nvar
+read_params.f90:     write(*,*)'You should have: nvar>=8'
+read_params.f90:     write(*,'(" Please recompile with -DNVAR=8")')
+read_params.f90:  !Write I/O group size information
+read_params.f90:  if(IOGROUPSIZE>0.or.IOGROUPSIZECONE>0.or.IOGROUPSIZEREP>0)write(*,*)' '
+read_params.f90:  if(IOGROUPSIZE>0) write(*,*)'IOGROUPSIZE=',IOGROUPSIZE
+read_params.f90:  if(IOGROUPSIZECONE>0) write(*,*)'IOGROUPSIZECONE=',IOGROUPSIZECONE
+read_params.f90:  if(IOGROUPSIZEREP>0) write(*,*)'IOGROUPSIZEREP=',IOGROUPSIZEREP
+read_params.f90:  if(IOGROUPSIZE>0.or.IOGROUPSIZECONE>0.or.IOGROUPSIZEREP>0)write(*,*)' '
+read_params.f90:  ! Write information about git version
+read_params.f90:  call write_gitinfo
+read_params.f90:     write(*,*)'You should type: ramses3d input.nml [nrestart]'
+read_params.f90:     write(*,*)'File input.nml should contain a parameter namelist'
+read_params.f90:     write(*,*)'nrestart is optional'
+read_params.f90:        write(*,*)'File '//TRIM(infile)//' does not exist'
+read_params.f90:     if(myid==1)write(*,*)'Error in the namelist:'
+read_params.f90:     if(myid==1)write(*,*)'levelmin should not be lower than 1 !!!'
+read_params.f90:     if(myid==1)write(*,*)'Error in the namelist:'
+read_params.f90:     if(myid==1)write(*,*)'levelmax should not be lower than levelmin'
+read_params.f90:        if(myid==1)write(*,*)'Error in the namelist:'
+read_params.f90:        if(myid==1)write(*,*)'Allocate some space for refinements !!!'
+read_params.f90:     write(*,*) 'Error: nlevelmax>MAXLEVEL'
+read_params.f90:     write(*,*) 'Error: nregion>MAXREGION'
+read_params.f90:     if(myid==1)write(*,*)'Too many errors in the namelist'
+read_params.f90:     if(myid==1)write(*,*)'Aborting...'
+refine_utils.f90:  if(verbose)write(*,*)'Entering refine' 
+refine_utils.f90:  if(verbose)write(*,*)'Complete refine'
+refine_utils.f90:  if(verbose)write(*,*)'  Entering refine_coarse'
+refine_utils.f90:     write(*,*)'No more free memory'
+refine_utils.f90:     write(*,*)'Increase ngridmax'
+refine_utils.f90:  if(verbose)write(*,112)ncreate
+refine_utils.f90:  if(verbose)write(*,113)nkill
+refine_utils.f90:  if(verbose)write(*,111)ilevel
+refine_utils.f90:              write(*,*)'No more free memory'
+refine_utils.f90:              write(*,*)'Increase ngridmax'
+refine_utils.f90:  if(verbose)write(*,112)ncreate
+refine_utils.f90:  if(verbose)write(*,113)nkill
+refine_utils.f90:                 write(*,*)'Fatal error in make_grid_fine'
+refine_utils.f90:                 write(*,*)myid,cpu_map(ind_cell(i))
+refine_utils.f90:                 write(*,*)ilevel,j,ibound,boundary_region
+update_time.f90:  if (o .and. ncpu==1) write (*,'(/a,i7,a)') '     seconds         %    STEP (rank=',myid,')'
+update_time.f90:        if (o .and. time(itimer)/total > 0.001) write (*,'(f12.3,4x,f6.1,4x,a24)') &
+update_time.f90:     if (o) write (*,'(f12.3,4x,f6.1,4x,a)') total, 100., 'TOTAL'
+update_time.f90:           write (*,*)
+update_time.f90:           write (*,*) '--------------------------------------------------------------------'
+update_time.f90:           write (*,*) 'Error: Inconsistent number of timers on each rank. Min, max nr:', minval(all_ntimer), maxval(all_ntimer)
+update_time.f90:           write (*,*) 'Timing summary below can be misleading'
+update_time.f90:           write (*,*) 'Labels of timer on rank==1 :'
+update_time.f90:           write (*,*) '--------------------------------------------------------------------'
+update_time.f90:              write(*,'(i3,1x,a)') itimer, labels(itimer)
+update_time.f90:        write (*,*)
+update_time.f90:        write (*,*) 'Labels of timer on rank==',myid
+update_time.f90:        write (*,*) '--------------------------------------------------------------------'
+update_time.f90:           write(*,'(i3,1x,a)') itimer, labels(itimer)
+update_time.f90:        write (*,*)
+update_time.f90:     if (o) write (*,*) '--------------------------------------------------------------------'
+update_time.f90:     if (o) write (*,'(/a)') '     minimum       average       maximum' // &
+update_time.f90:              write (*,'(5(f12.3,2x),f6.1,2x,2i4,4x,a24)') &
+update_time.f90:     if (o) write (*,'(f12.3,4x,f6.1,4x,a)') total, 100., 'TOTAL'
+update_time.f90:           write(*,*)'Mesh structure'
+update_time.f90:              if(numbtot(1,i)>0)write(*,999)i,numbtot(1:4,i)
+update_time.f90:              write(*,778)nstep_coarse,econs,epot_tot,ekin_tot,eint_tot
+update_time.f90:              write(*,777)nstep_coarse,mcons,econs,epot_tot,ekin_tot
+update_time.f90:           write(*,'(" emag=",ES9.2)') emag_tot
+update_time.f90:              write(*,888)nstep,t*user_time_to_Myr,dt*user_time_to_Myr,aexp,&
+update_time.f90:              write(*,888)nstep,t*user_time_to_Myr,dt*user_time_to_Myr,aexp,&
+update_time.f90:           write(*,*)'Run completed'
+update_time.f90:           write(*,*)'Total elapsed time:',ttend-ttstart
+update_time.f90:           write(*,888)nstep,t*user_time_to_Myr,dt*user_time_to_Myr,aexp,&
+update_time.f90:           write(*,888)nstep,t*user_time_to_Myr,dt*user_time_to_Myr,aexp,&
+update_time.f90:subroutine writemem(usedmem)
+update_time.f90:     write(*,999)usedmem/1024.**3.
+update_time.f90:     write(*,998)usedmem/1024.**2
+update_time.f90:     write(*,997)usedmem/1024.
+update_time.f90:end subroutine writemem
+update_time.f90:     if (myid==1 .and. read_status .ne. -1000)write(*,*)'Problem in checking free memory'
+update_time.f90:  write(*,*)'Estimated memory=',(outmem_dp*8.+outmem_int*4.+outmem_qdp*8.)/1024./1024.

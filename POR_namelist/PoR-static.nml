@@ -1,0 +1,64 @@
+&RUN_PARAMS
+poisson=.true.
+pic=.true.
+mond=.true.
+debug=.false.
+verbose=.false.
+hydro=.false.
+nrestart=0
+/
+
+&AMR_PARAMS 
+levelmin=7
+levelmax=12
+ngridmax=2000000
+nexpand=1
+boxlen=1024.0
+npartmax=2000000
+/
+
+&OUTPUT_PARAMS
+foutput=8000
+noutput=100
+delta_tout=100.
+tend=10000.
+/
+
+&INIT_PARAMS
+filetype='ascii'
+initfile='.'
+/
+
+&POISSON_PARAMS
+a0_ms2=1.2e-10
+m_threshold=1.e+30
+gravity_type=0
+cg_levelmin=999
+/
+
+&BOUNDARY_PARAMS
+nboundary=6
+ibound_min=-1, 1, 0, 0, 0, 0,
+ibound_max=-1, 1, 0, 0, 0, 0,
+jbound_min= 0, 0,-1, 1, 0, 0,
+jbound_max= 0, 0,-1, 1, 0, 0,
+kbound_min= 0, 0, 0, 0,-1, 1,
+kbound_max= 0, 0, 0, 0,-1, 1,
+bound_type= 1, 1, 1, 1, 1, 1, 
+/
+
+&REFINE_PARAMS
+mass_sph=1.e-0
+m_refine=10*20.
+/
+
+&GAS_PARAMS
+IG_density_factor=0.0
+Mgas=0.0
+V0=0.0
+R0=0.0
+/
+
+&MOVIE_PARAMS
+movie=.false.
+/
