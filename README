@@ -2,11 +2,12 @@ Phantom of Ramses (PoR) was developed by Fabian Lueghausen in 2015 (Lueghausen e
 "PoR_main" contains the 2015 version of RAMSES package, which is compatible with the PoR patch.
 
 
-This PoR patch contains an analytic density profile of Coma galaxy cluster in Modified Newtonian dynamics (MOND) as well as in Newtonian (LCDM) framework of gravity. 
+Here, the user will find an analytic density profile of Coma galaxy cluster in Modified Newtonian dynamics (MOND) as well as in Newtonian (LCDM) framework of gravity, encoded into Phantom of Ramses (PoR).
 The equations encoded here are taken from Freundlich et al (2022): https://arxiv.org/abs/2109.04487 
 This analytic density patch was used in the work by Nagesh et al (in prep) where we tested the stability of Ultra Diffuse Galaxies (UDGs) in the Coma cluster in MOND.
-This analytic density patch was developed by Srikanth T. Nagesh during his PhD, under the supervision of Dr. Jonathan Freundlich and Dr. Benoit Famaey.
 User of this patch can run N-body simulations of their desired objects, with the background potential of the Coma galaxy cluster in both MOND and Newtonian gravity framework.
+
+This analytic density patch was developed by Srikanth T. Nagesh during his PhD, under the supervision of Dr. Jonathan Freundlich and Dr. Benoit Famaey.
 
 For more details on the general PoR patch and how to use PoR, the user is referred to this website: https://bitbucket.org/SrikanthTN/bonnpor/src/master/ 
 Also, a manual to setup, run, and analyse disc galaxy simulations can be found here: https://arxiv.org/abs/2101.11011 
