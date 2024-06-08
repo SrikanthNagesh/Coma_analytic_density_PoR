@@ -47,6 +47,7 @@ subroutine rho_fine(ilevel,icount)
   ! to have an analytic density without hydrodynamics
   ! This is allocated here because with hydro == false
   ! init_hydro is never called.
+  !STN update
   if (.not. hydro .and. gravity_type < 0) then
      !print *,"Hacking the analytic density"
      ncell=ncoarse+twotondim*ngridmax
@@ -64,6 +65,7 @@ subroutine rho_fine(ilevel,icount)
         ! Compute mass multipole
         if(hydro)call multipole_fine(i)
         !GC: call to multipole_fine if analytic density is required, even without hydro
+	!STN update
         if(.not. hydro .and. gravity_type < 0)call multipole_fine(i)
         ! Perform TSC using pseudo-particle
 #ifdef TSC
@@ -86,6 +88,7 @@ subroutine rho_fine(ilevel,icount)
 
   ! deallocate temporarily used hydro array in case of analytic density
   ! without hydro
+  !STN update
   if (.not. hydro .and. gravity_type < 0) then
     deallocate(unew)
   endif
@@ -875,6 +878,7 @@ subroutine cic_from_multipole(ilevel)
   
   !if(hydro)then
   !GC - Modified to run for analytic rho even without hydro
+  !STN update
   if(hydro .or. gravity_type .lt. 0)then
      ! Perform a restriction over split cells (ilevel+1)
      ncache=active(ilevel)%ngrid
