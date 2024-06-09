@@ -5,12 +5,39 @@ Phantom of Ramses (PoR) was developed by Fabian Lueghausen in 2015 (Lueghausen e
 Here, the user will find an analytic density profile of Coma galaxy cluster in Modified Newtonian dynamics (MOND) as well as in Newtonian (LCDM) framework of gravity, encoded into Phantom of Ramses (PoR).
 The equations encoded here are taken from Freundlich et al (2022): https://arxiv.org/abs/2109.04487 
 This analytic density patch was used in the work by Nagesh et al (submitted) where we tested the stability of Ultra Diffuse Galaxies (UDGs) in the Coma cluster in MOND.
-User of this patch can run N-body simulations of their desired objects, with the background potential of the Coma galaxy cluster in both MOND and Newtonian gravity framework.
+User of this patch can run N-body simulations of desired objects, with the background potential of the Coma galaxy cluster in both MOND and Newtonian gravity framework.
 
 This analytic density patch was developed by Srikanth T. Nagesh during his PhD, under the supervision of Dr. Jonathan Freundlich and Dr. Benoit Famaey.
 
-For more details on the general PoR patch and how to use PoR, the user is referred to this website: https://bitbucket.org/SrikanthTN/bonnpor/src/master/ 
+Compilation of the patch:
+1) Download PoR_main folder to to the local workstation.
+2) cd PoR_main/bin/
+3) make clean
+4) PATCH = ../patch/phantom_staticparts is the default patch that needs to be used in the Makefile.
+5) Install the required dependencies and execute "make" (without the inverted commas). An executable named ramses3d will be generated in /bin.
+
+Running simulations with this patch:
+1) Copy ramses3d executable into a folder of choice.
+2) The user can use PoR_main/POR_namelist/Coma_analytic.nml namelist file or can use a customised namelist.
+3) The important parameters to use in the namelist to activate the Coma_cluster analytic potential are the following:
+    &RUN_PARAMS
+     mond = .true !Activates the Coma cluster potential in MOND framework
+     mond = .false. !Activates the Coma cluster potential in LCDM framework
+     hydro = .false. !We have removed all the hydro dependencies for analytic density.
+
+    &AMR_PARAMS
+    boxlen=8000.0 ! The units are kpc
+
+    &INIT_PARAMS
+    filetype='ascii'
+    initfile='Test_case.txt' !This is where the initial conditions of the N-Body is input
+
+    &POISSON_PARAMS
+    gravity_type=-1  !This value should always be < 0 to activate the analytic potential   
+    gravity_params=8000 !This is the radius upto which the potential is computed. This value should be => boxlen
+
+If the user is not familiar with PoR, the for more details on the general PoR patch and how to use PoR, the user is referred to this website: https://bitbucket.org/SrikanthTN/bonnpor/src/master/ 
 Also, a manual to setup, run, and analyse disc galaxy simulations can be found here: https://arxiv.org/abs/2101.11011 
 
-For details and queries, contact: tnsrikanth1998@gmail.com
+For details and queries, contact: tnsrikanth1998@gmail.com, togerenagesh@unistra.fr
 
